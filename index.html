@@ -1,6 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sarvn</title>
+<meta name="description" content="Portfolio of Saravanan A: B.Tech AI &amp; Data Science graduate, Java full stack developer and IT infrastructure engineer at NSE India.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<style>
+:root{--bg:#0a0a12;--panel:#12121d;--line:#26263a;--ink:#ecebf7;--mute:#9b9ab5;--acc:#7c75e0;--acc2:#b4afff;--mx:50%;--my:30%}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;line-height:1.7;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(520px circle at var(--mx) var(--my),rgba(124,117,224,.16),transparent 70%)}
+h1,h2,h3,h4,.brand{font-family:'Sora',sans-serif;letter-spacing:-.02em}
+a{color:var(--acc2);text-decoration:none}a:hover{color:#fff}
+:focus-visible{outline:2px solid var(--acc2);outline-offset:3px}
+.navbar{background:rgba(10,10,18,.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:.6rem;color:var(--ink);font-weight:800}
+.brand img{width:36px;height:36px;border-radius:9px}
+.nav-link{color:var(--mute)!important}.nav-link:hover,.nav-link.active{color:#fff!important}
+.navbar-toggler{border-color:var(--line);filter:invert(1)}
+section{padding:6rem 0}
+.sec-title{font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin-bottom:.4rem}
+.sec-sub{color:var(--mute);margin-bottom:2.5rem;max-width:56ch}
+/* hero */
+#home{min-height:100vh;display:flex;align-items:center;padding-top:7rem}
+.hero-name{font-size:clamp(2.8rem,8vw,5.6rem);font-weight:800;line-height:1.02}
+.hero-name span{display:block;overflow:hidden}
+.hero-name span i{display:block;font-style:normal;transform:translateY(105%);animation:rise .9s cubic-bezier(.2,.8,.2,1) forwards}
+.hero-name span:nth-child(2) i{animation-delay:.15s;color:var(--acc2)}
+@keyframes rise{to{transform:none}}
+.role{font-family:'Sora';font-size:clamp(1.1rem,2.4vw,1.5rem);min-height:2.2rem;color:var(--ink)}
+.cursor{display:inline-block;width:2px;height:1.2em;background:var(--acc2);margin-left:3px;vertical-align:-.2em;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:0}}
+.lede{color:var(--mute);max-width:52ch}
+.btn-acc{background:var(--acc);border:0;color:#0a0a12;font-weight:600;padding:.75rem 1.6rem;border-radius:12px;transition:transform .2s,background .2s}
+.btn-acc:hover{background:var(--acc2);color:#0a0a12;transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line);color:var(--ink);padding:.75rem 1.6rem;border-radius:12px;transition:border-color .2s,transform .2s}
+.btn-ghost:hover{border-color:var(--acc);color:#fff;transform:translateY(-2px)}
+.photo-wrap{position:relative;width:min(340px,80vw);aspect-ratio:4/5;margin-inline:auto;perspective:900px}
+.photo-wrap::before{content:"";position:absolute;inset:-14px;border-radius:38% 62% 55% 45%/48% 40% 60% 52%;border:1.5px solid var(--acc);opacity:.55;animation:morph 9s ease-in-out infinite}
+.photo-wrap::after{content:"";position:absolute;inset:-30px;border-radius:55% 45% 40% 60%/50% 60% 40% 50%;border:1px dashed var(--line);animation:morph 13s ease-in-out infinite reverse}
+@keyframes morph{50%{border-radius:60% 40% 45% 55%/40% 55% 45% 60%;transform:rotate(8deg)}}
+.photo{position:relative;z-index:1;width:100%;height:100%;overflow:hidden;border-radius:38% 62% 55% 45%/48% 40% 60% 52%;background:var(--panel);transition:transform .15s;box-shadow:0 30px 60px -20px rgba(124,117,224,.4)}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:45% 0%;transform:scale(1.7);transform-origin:45% 9%}
+.chip{position:absolute;z-index:2;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:.35rem .8rem;font-size:.85rem;animation:float 5s ease-in-out infinite}
+.chip.a{top:8%;right:-8%}.chip.b{bottom:14%;left:-10%;animation-delay:-2.5s}
+@keyframes float{50%{transform:translateY(-10px)}}
+.socials a{color:var(--mute);font-size:1.4rem;margin-right:1rem;transition:color .2s,transform .2s;display:inline-block}
+.socials a:hover{color:var(--acc2);transform:translateY(-3px)}
+/* about */
+.stat{border-left:2px solid var(--acc);padding-left:1rem}
+.stat b{font-family:'Sora';font-size:1.8rem;display:block;line-height:1.1}
+.stat small{color:var(--mute)}
+/* timeline */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:1.75rem}
+.xp{display:flex;gap:1.25rem}
+.xp-logo{flex:none;width:120px;height:68px;border-radius:16px;background:#fff;display:grid;place-items:center;padding:10px 12px;align-self:flex-start}
+.xp-logo img{width:100%;height:100%;object-fit:contain}
+@media (max-width:575px){.xp{flex-direction:column}}
+.xp h3{font-size:1.25rem;margin:0}
+.badge-now{background:rgba(124,117,224,.18);color:var(--acc2);border-radius:20px;padding:.15rem .75rem;font-size:.8rem}
+.xp ul{margin:1rem 0 0;padding-left:1.1rem;color:var(--mute)}.xp li{margin-bottom:.35rem}
+.xp li::marker{color:var(--acc)}
+.mini{display:flex;gap:1rem;align-items:center;padding:1rem 0;border-bottom:1px solid var(--line)}
+.mini:last-child{border:0}
+.mini i{font-size:1.4rem;color:var(--acc2)}
+/* projects */
+.proj{height:100%;display:flex;flex-direction:column;transition:transform .25s,border-color .25s}
+.proj:hover{transform:translateY(-6px);border-color:var(--acc)}
+.proj .ic{font-size:1.8rem;color:var(--acc2)}
+.proj p{color:var(--mute);flex:1}
+.tag{display:inline-block;border:1px solid var(--line);border-radius:8px;padding:.1rem .6rem;font-size:.8rem;color:var(--mute);margin:0 .35rem .35rem 0}
+.date{font-size:.85rem;color:var(--mute)}
+/* skills */
+.bar{margin-bottom:1.1rem}
+.bar .top{display:flex;justify-content:space-between;font-size:.95rem}
+.track{height:7px;background:var(--line);border-radius:6px;overflow:hidden;margin-top:.3rem}
+.fill{height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));border-radius:6px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+/* contact */
+.form-control{background:var(--bg);border:1px solid var(--line);color:var(--ink);border-radius:12px;padding:.8rem 1rem}
+.form-control:focus{background:var(--bg);color:var(--ink);border-color:var(--acc);box-shadow:0 0 0 3px rgba(124,117,224,.25)}
+.form-control::placeholder{color:#6b6a85}
+.c-row{display:flex;gap:1rem;align-items:center;margin-bottom:1.1rem}
+.c-row i{width:44px;height:44px;border-radius:12px;background:rgba(124,117,224,.15);color:var(--acc2);display:grid;place-items:center;font-size:1.15rem}
+footer{border-top:1px solid var(--line);padding:2rem 0;color:var(--mute);text-align:center;font-size:.9rem}
+#top{position:fixed;right:1.2rem;bottom:1.2rem;width:44px;height:44px;border:0;border-radius:12px;background:var(--acc);color:#0a0a12;font-size:1.2rem;opacity:0;pointer-events:none;transition:opacity .3s}
+#top.show{opacity:1;pointer-events:auto}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.hero-name span i{transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand brand" href="#home"><img src="favicon.png" alt="Saravanan logo">Saravanan</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Menu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header id="home">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7 order-2 order-lg-1">
+        <p class="mb-2" style="color:var(--mute)">Hi, I'm</p>
+        <h1 class="hero-name"><span><i>Saravanan</i></span><span><i>A</i></span></h1>
+        <div class="role mt-3"><span id="typed"></span><span class="cursor"></span></div>
+        <p class="lede mt-3">I’m currently working as an Apprentice End User Support Engineer at NSE India, helping maintain reliable IT operations and providing technical support to employees. I hold a B.Tech in Artificial Intelligence and Data Science from Knowledge Institute of Technology, Salem, and I’m based in Chennai, Tamil Nadu.</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <a href="#projects" class="btn btn-acc">See my projects</a>
+          <a href="Saravanan_Resume.pdf" download class="btn btn-ghost"><i class="bi bi-download me-2"></i>Download resume</a>
+        </div>
+        <div class="socials mt-4">
+          <a href="https://www.linkedin.com/in/saravanan-arunachalam-27097424b/?isSelfProfile=true" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="https://github.com/Saravananarunachalam" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="mailto:saravananarun29@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-5 order-1 order-lg-2">
+        <div class="photo-wrap" id="tilt">
+          <div class="photo"><img src="photo.png" alt="Portrait of Saravanan A"></div>
+          <span class="chip a"><i class="bi bi-cpu me-1"></i>AI &amp; Data Science</span>
+          <span class="chip b"><i class="bi bi-cup-hot me-1"></i>Java Full Stack</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-7 rv">
+        <h2 class="sec-title">About me</h2>
+        <p class="sec-sub">I want to learn new technology and use it to solve real-world problems.</p>
+        <p style="color:var(--mute)">I graduated with a B.Tech in Artificial Intelligence and Data Science from Knowledge Institute of Technology, Salem. Since January 2026 I've been an apprentice at NSE India, supporting employees and the infrastructure behind their work. Outside of work I build projects in Java, Spring Boot, Python and Django, including a learning platform for visually and hearing-impaired students.</p>
+      </div>
+      <div class="col-lg-5 rv">
+        <div class="row g-4">
+          <div class="col-6"><div class="stat"><b data-count="8" data-dec="1">0</b><small>CGPA</small></div></div>
+          <div class="col-6"><div class="stat"><b data-count="3">0</b><small>Projects built</small></div></div>
+          <div class="col-6"><div class="stat"><b data-count="2">0</b><small>Internships</small></div></div>
+          <div class="col-6"><div class="stat"><b data-count="2025">0</b><small>Graduated</small></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <h2 class="sec-title rv">Experience</h2>
+    <p class="sec-sub rv">Where I work now, and where I learned before.</p>
+    <div class="panel xp rv">
+      <div class="xp-logo" title="NSE India">
+        <img src="nse-logo.svg" alt="NSE India logo">
+      </div>
+      <div>
+        <div class="d-flex flex-wrap align-items-center gap-2"><h3>Apprentice, End User Support (EUS) Engineer</h3><span class="badge-now">Current</span></div>
+        <div style="color:var(--acc2)">National Stock Exchange of India (NSE India), Tech Infrastructure</div>
+        <div class="date">Jan 2026 to present · Chennai, Tamil Nadu</div>
+        <ul>
+          <li>Troubleshoot hardware, software and network issues for employees.</li>
+          <li>Install, configure and maintain desktops, laptops, printers and peripherals.</li>
+          <li>Work with infrastructure and application support teams to resolve complex problems.</li>
+          <li>Help manage IT assets, system documentation and inventory records.</li>
+          <li>Resolve incidents and service requests in ServiceNow (SNOW) within SLA targets.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel mt-4 rv">
+      <h4 class="h5 mb-2">Internships</h4>
+      <div class="mini"><i class="bi bi-diagram-3"></i><div><b>Data Engineer Intern</b><br><span class="date">I18n Solutions, Salem · Jan 2023 to Mar 2023</span></div></div>
+      <div class="mini"><i class="bi bi-graph-up-arrow"></i><div><b>Data Science and Machine Learning Virtual Internship</b><br><span class="date">YBI Foundation, Virtual · Jun 2023 to Jul 2023</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <h2 class="sec-title rv">Projects</h2>
+    <p class="sec-sub rv">Three things I've built, newest first.</p>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 rv"><div class="panel proj">
+        <i class="bi bi-hospital ic mb-2"></i><h3 class="h5">Hospital Management System</h3><div class="date mb-2">Aug 2025</div>
+        <p>A full-stack web app with CRUD for patients, doctors, appointments and room allocation.</p>
+        <div><span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Hibernate</span><span class="tag">Thymeleaf</span><span class="tag">MySQL</span></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 rv"><div class="panel proj">
+        <i class="bi bi-universal-access ic mb-2"></i><h3 class="h5">InclusionIQ: Smart Education Platform</h3><div class="date mb-2">Jan 2025 to May 2025</div>
+        <p>An accessible learning platform for visually and hearing-impaired students, with text-to-speech, speech recognition and sign language avatar videos.</p>
+        <div><span class="tag">Python</span><span class="tag">Flask</span><span class="tag">gTTS</span><span class="tag">Speech Recognition</span></div>
+      </div></div>
+      <div class="col-md-6 col-lg-4 rv"><div class="panel proj">
+        <i class="bi bi-bar-chart-line ic mb-2"></i><h3 class="h5">Student Result Analysis</h3><div class="date mb-2">Nov 2022 to Mar 2023</div>
+        <p>A web app that analyses and visualises student academic performance.</p>
+        <div><span class="tag">Django</span><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span></div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <h2 class="sec-title rv">Skills</h2>
+    <p class="sec-sub rv">The tools I use most.</p>
+    <div class="row g-5">
+      <div class="col-lg-6 rv" id="bars">
+        <div class="bar"><div class="top"><span>Java</span><span>85%</span></div><div class="track"><div class="fill" data-w="85"></div></div></div>
+        <div class="bar"><div class="top"><span>Python</span><span>80%</span></div><div class="track"><div class="fill" data-w="80"></div></div></div>
+        <div class="bar"><div class="top"><span>Spring Boot &amp; Hibernate</span><span>78%</span></div><div class="track"><div class="fill" data-w="78"></div></div></div>
+        <div class="bar"><div class="top"><span>HTML &amp; CSS</span><span>80%</span></div><div class="track"><div class="fill" data-w="80"></div></div></div>
+        <div class="bar"><div class="top"><span>JavaScript</span><span>70%</span></div><div class="track"><div class="fill" data-w="70"></div></div></div>
+        <div class="bar"><div class="top"><span>MySQL</span><span>75%</span></div><div class="track"><div class="fill" data-w="75"></div></div></div>
+      </div>
+      <div class="col-lg-6 rv">
+        <div class="panel mb-3"><h4 class="h6">Languages</h4><span class="tag">Java</span><span class="tag">Python</span><span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
+        <div class="panel mb-3"><h4 class="h6">Frameworks</h4><span class="tag">Spring Boot</span><span class="tag">Hibernate</span><span class="tag">Flask</span><span class="tag">Django</span></div>
+        <div class="panel"><h4 class="h6">Database and support tools</h4><span class="tag">MySQL</span><span class="tag">ServiceNow (SNOW)</span><span class="tag">IT asset management</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="container">
+    <h2 class="sec-title rv">Education &amp; certification</h2>
+    <p class="sec-sub rv"></p>
+    <div class="row g-4">
+      <div class="col-md-6 rv"><div class="panel h-100"><i class="bi bi-mortarboard fs-2" style="color:var(--acc2)"></i>
+        <h3 class="h5 mt-2">B.Tech, Artificial Intelligence and Data Science</h3>
+        <div>Knowledge Institute of Technology, Salem</div><div class="date">2021 to 2025 · CGPA 8</div></div></div>
+      <div class="col-md-6 rv"><div class="panel h-100"><i class="bi bi-award fs-2" style="color:var(--acc2)"></i>
+        <h3 class="h5 mt-2">Java Full Stack Development</h3>
+        <div>Edubridge, Capgemini</div><div class="date">Sep 2025</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2 class="sec-title rv">Contact</h2>
+    <p class="sec-sub rv">Open to roles in software development and IT infrastructure. Send a message and I'll reply by email.</p>
+    <div class="row g-5">
+      <div class="col-lg-5 rv">
+        <div class="c-row"><i class="bi bi-envelope"></i><a href="mailto:saravananarun29@gmail.com">saravananarun29@gmail.com</a></div>
+        <div class="c-row"><i class="bi bi-telephone"></i><a href="tel:+919344398850">+91 93443 98850</a></div>
+        <div class="c-row"><i class="bi bi-geo-alt"></i><span>Chennai, Tamil Nadu</span></div>
+      </div>
+      <div class="col-lg-7 rv">
+        <div class="panel">
+          <div class="row g-3">
+            <div class="col-md-6"><input id="fn" class="form-control" placeholder="Your name" aria-label="Your name"></div>
+            <div class="col-md-6"><input id="fe" type="email" class="form-control" placeholder="Your email" aria-label="Your email"></div>
+            <div class="col-12"><textarea id="fm" rows="4" class="form-control" placeholder="How can I help?" aria-label="Message"></textarea></div>
+            <div class="col-12"><button type="button" id="send" class="btn btn-acc">Send message</button> <span id="note" class="ms-2 date" role="status"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><img src="favicon.png" alt="" width="22" height="22" class="me-2 rounded">© <span id="yr"></span> Saravanan A</footer>
+<button id="top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+$('#yr').textContent=new Date().getFullYear();
+
+// typing effect
+const roles=['AI & Data Science graduate','Full stack developer','End user support engineer at NSE India'];
+let r=0,c=0,del=false;const t=$('#typed');
+(function type(){
+  const w=roles[r];t.textContent=w.slice(0,c);
+  if(!del&&c===w.length){del=true;return setTimeout(type,1600)}
+  if(del&&c===0){del=false;r=(r+1)%roles.length}
+  c+=del?-1:1;setTimeout(type,del?30:60);
+})();
+
+// cursor glow + photo tilt
+addEventListener('pointermove',e=>{
+  document.body.style.setProperty('--mx',e.clientX+'px');
+  document.body.style.setProperty('--my',e.clientY+'px');
+});
+const wrap=$('#tilt'),ph=$('.photo');
+wrap.addEventListener('pointermove',e=>{
+  const b=wrap.getBoundingClientRect(),x=(e.clientX-b.left)/b.width-.5,y=(e.clientY-b.top)/b.height-.5;
+  ph.style.transform=`rotateY(${x*14}deg) rotateX(${-y*14}deg)`;
+});
+wrap.addEventListener('pointerleave',()=>ph.style.transform='');
+
+// reveal, counters, skill bars
+function count(el){
+  const to=+el.dataset.count,d=+(el.dataset.dec||0),s=performance.now();
+  (function f(n){const p=Math.min((n-s)/1200,1);el.textContent=(to*p).toFixed(d);if(p<1)requestAnimationFrame(f)})(s);
+}
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  e.target.classList.add('in');
+  e.target.querySelectorAll('[data-count]').forEach(count);
+  e.target.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%');
+  io.unobserve(e.target);
+}),{threshold:.2});
+$$('.rv').forEach((el,i)=>{el.style.transitionDelay=(i%3)*90+'ms';io.observe(el)});
+
+// active nav + back to top
+const links=$$('.nav-link'),secs=$$('section,header');
+addEventListener('scroll',()=>{
+  let cur='home';secs.forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id});
+  links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+cur));
+  $('#top').classList.toggle('show',scrollY>600);
+});
+$('#top').onclick=()=>scrollTo({top:0});
+$$('.nav-link').forEach(l=>l.addEventListener('click',()=>bootstrap.Collapse.getInstance($('#nav'))?.hide()));
+
+// contact form opens the visitor's email app
+$('#send').onclick=()=>{
+  const n=$('#fn').value.trim(),e=$('#fe').value.trim(),m=$('#fm').value.trim();
+  if(!n||!/\S+@\S+\.\S+/.test(e)||!m){$('#note').textContent='Enter your name, a valid email and a message.';return}
+  location.href=`mailto:saravananarun29@gmail.com?subject=${encodeURIComponent('Portfolio message from '+n)}&body=${encodeURIComponent(m+'\n\n'+n+' ('+e+')')}`;
+  $('#note').textContent='Opening your email app...';
+};
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sarvn</title>
